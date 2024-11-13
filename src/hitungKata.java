@@ -145,21 +145,17 @@ public class hitungKata extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String text = jTextArea1.getText();
 
-        // Hitung jumlah karakter (termasuk spasi)
         int characterCount = text.length();
 
         String[] words = text.trim().split("\\s+");
         int wordCount = (text.trim().isEmpty()) ? 0 : words.length;
 
-        // Hitung jumlah kalimat
         String[] sentences = text.split("[.!?]\\s*");
         int sentenceCount = (text.trim().isEmpty()) ? 0 : sentences.length;
 
-        // Hitung jumlah paragraf
         String[] paragraphs = text.split("\\n\\s*");
         int paragraphCount = (text.trim().isEmpty()) ? 0 : paragraphs.length;
 
-        // Tampilkan hasil di jLabel3
         jLabel3.setText("<html>Jumlah karakter: " + characterCount
                 + "<br>Jumlah kata: " + wordCount
                 + "<br>Jumlah kalimat: " + sentenceCount
@@ -179,10 +175,9 @@ public class hitungKata extends javax.swing.JFrame {
         int userSelection = fileChooser.showSaveDialog(this);
         
         if (userSelection == JFileChooser.APPROVE_OPTION) {
-            String text = jLabel3.getText(); // Ambil hasil perhitungan
+            String text = jLabel3.getText();
             java.io.File fileToSave = fileChooser.getSelectedFile();
             
-            // Menambahkan ekstensi default ".txt" jika belum ditambahkan
             if (!fileToSave.getName().contains(".")) {
                 fileToSave = new java.io.File(fileToSave.getAbsolutePath() + ".txt");
             }
